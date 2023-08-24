@@ -1,0 +1,142 @@
+[
+    {
+        "id": 0,
+        "name": "Oppenheimer",
+        "image": "images/img_oppenheimer.jpg",
+        "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
+        "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
+        "releaseDate": "2023/07/21",
+        "director": "Christopher Nolan",
+        "cast": [
+            {
+                "name": "Cillian Murphy",
+                "character": "J. Robert Oppenheimer",
+                "image": "images/img_Cillian Murphy.jpg"
+            },
+            {
+                "name": "Emily Blunt",
+                "character": "Kitty Oppenheimer",
+                "image": "images/img_Emily Blunt.jpg"
+            },
+            {
+                "name": "Robert Downey Jr.",
+                "character": "Lewis Strauss",
+                "image": "images/img_Cillian Murphy.jpg"
+            }
+        ],
+        "rating": 0.0,
+        "comment": []
+    },
+    {
+        "id": 0,
+        "name": "Barbie",
+        "image": "images/img_oppenheimer.jpg",
+        "storylineShort": "Barbie suffers a crisis that leads her to question her world and her existence.",
+        "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
+        "releaseDate": "2023/07/21",
+        "director": "Christopher Nolan",
+        "cast": [
+            {
+                "name": "Cillian Murphy",
+                "character": "J. Robert Oppenheimer",
+                "image": "images/img_Cillian Murphy.jpg"
+            },
+            {
+                "name": "Emily Blunt",
+                "character": "Kitty Oppenheimer",
+                "image": "images/img_Emily Blunt.jpg"
+            },
+            {
+                "name": "Robert Downey Jr.",
+                "character": "Lewis Strauss",
+                "image": "images/img_Cillian Murphy.jpg"
+            }
+        ],
+        "rating": 0.0,
+        "comment": []
+    },
+    {
+        "id": 0,
+        "name": "Oppenheimer",
+        "image": "images/img_oppenheimer.jpg",
+        "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
+        "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
+        "releaseDate": "2023/07/21",
+        "director": "Christopher Nolan",
+        "cast": [
+            {
+                "name": "Cillian Murphy",
+                "character": "J. Robert Oppenheimer",
+                "image": "images/img_Cillian Murphy.jpg"
+            },
+            {
+                "name": "Emily Blunt",
+                "character": "Kitty Oppenheimer",
+                "image": "images/img_Emily Blunt.jpg"
+            },
+            {
+                "name": "Robert Downey Jr.",
+                "character": "Lewis Strauss",
+                "image": "images/img_Cillian Murphy.jpg"
+            }
+        ],
+        "rating": 0.0,
+        "comment": []
+    },
+    {
+        "id": 0,
+        "name": "Oppenheimer",
+        "image": "images/img_oppenheimer.jpg",
+        "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
+        "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
+        "releaseDate": "2023/07/21",
+        "director": "Christopher Nolan",
+        "cast": [
+            {
+                "name": "Cillian Murphy",
+                "character": "J. Robert Oppenheimer",
+                "image": "images/img_Cillian Murphy.jpg"
+            },
+            {
+                "name": "Emily Blunt",
+                "character": "Kitty Oppenheimer",
+                "image": "images/img_Emily Blunt.jpg"
+            },
+            {
+                "name": "Robert Downey Jr.",
+                "character": "Lewis Strauss",
+                "image": "images/img_Cillian Murphy.jpg"
+            }
+        ],
+        "rating": 0.0,
+        "comment": []
+    },
+    {
+        "id": 0,
+        "name": "Oppenheimer",
+        "image": "images/img_oppenheimer.jpg",
+        "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
+        "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
+        "releaseDate": "2023/07/21",
+        "director": "Christopher Nolan",
+        "cast": [
+            {
+                "name": "Cillian Murphy",
+                "character": "J. Robert Oppenheimer",
+                "image": "images/img_Cillian Murphy.jpg"
+            },
+            {
+                "name": "Emily Blunt",
+                "character": "Kitty Oppenheimer",
+                "image": "images/img_Emily Blunt.jpg"
+            },
+            {
+                "name": "Robert Downey Jr.",
+                "character": "Lewis Strauss",
+                "image": "images/img_Cillian Murphy.jpg"
+            }
+        ],
+        "rating": 0.0,
+        "comment": []
+    }
+]
