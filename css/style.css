@@ -10,6 +10,16 @@ body {
     color: rgb(240, 242, 247);
 }
 
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
 .container {
     /* width: 100%; */
 	max-width: 480px;
@@ -38,7 +48,7 @@ body {
     cursor: pointer;
 }
 
-#movie-list {
+.movie-list {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     column-gap: 2rem;
@@ -65,12 +75,83 @@ body {
     font-weight: 200;
 }
 
+.info {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10%; */
+}
+
+.info-img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.info-name {
+    font-size: 2.5rem;
+}
+
+.info-storyline {
+    margin-top: 3rem;
+    font-weight: lighter;
+}
+
+.info-details {
+    font-size: 1.25rem;
+}
+
+.cast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+    row-gap: 6rem;
+    margin-top: 5rem;
+}
+
+.actor {
+
+}
+
+.actor-img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.actor-name {
+
+}
+
+.actor-character {
+
+}
+
+.reviews {
+    
+}
+        
+
 
 @media screen and (min-width: 600px) {
 
+    .cast {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .info {
+        flex-direction: row;
+        gap: 5%;
+    }
+
+    .info-img {
+        width: 40%;
+        
+    }
+
     /* .container {padding: 0 10px;} */
 
-    #movie-list {
+    .movie-list {
         grid-template-columns: repeat(3, 1fr);
     }
 
@@ -79,7 +160,15 @@ body {
 
 @media screen and (min-width: 768px) {
 
-    #movie-list {
+    .cast {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .info {
+        gap: 10%;
+    }
+
+    .movie-list {
         column-gap: 3rem;
         grid-template-columns: repeat(4, 1fr);
     }
@@ -90,6 +179,16 @@ body {
 
 @media screen and (min-width: 1025px) {
 
+    .cast {
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 4.5rem;
+    }
+
+    .info-storyline {
+        margin-top: 5rem;
+        font-size: 1.25rem;
+    }
 	.container {max-width: 1025px;}
 
 }
+
