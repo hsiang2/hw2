@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(17, 26, 53);;
+    background-color: rgb(17, 26, 53);
     box-sizing: border-box;
     /* font-size: 62.5%; */
 }
@@ -120,16 +120,124 @@ button {
 }
 
 .actor-name {
-
+    font-size: 1.25rem;
 }
 
 .actor-character {
+    font-weight: lighter;
+}
 
+.text-input {
+    box-sizing: border-box;
+    width: 100%;
+    background-color:transparent;
+    border: 2px solid rgba(240, 242, 247, 0.52);
+    border-radius: 20px;
+    outline: none;
+    padding: 1rem;
+    color: rgb(240, 242, 247);
+    font-size: 1.25rem;
+}
+
+.btn {
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 4rem;
+    width: 15rem;
+    height: 3.5rem;
+    border-radius: 50px;
+    border: none;
+    background-color: #9cdfe3;
+    color: rgb(17, 26, 53);
+    cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .reviews {
+    margin-top: 6rem;
+}
+
+.reviews .info-name {
+    margin-bottom: 5rem;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.slider p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding-left: 2rem;
+}
+
+.slider input[type="range"] {
+    /* -webkit-appearance:none !important; */
+    width: 50%;
+    appearance: none;
+    height: 3px;
+ 
+    /* background: aqua; */
+    /* height: 2px; */
+    /* background: black; */
+    /* border: none;
+    outline: none; */
+}
+
+
+
+.slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    width: 20px;
+    height: 20px;
+    background: #9cdfe3;
+    border-radius: 50%;
+    cursor: pointer;
     
 }
+
+.slider input[type="range"]::-webkit-slider-runnable-track {
+    accent-color: rgb(102, 196, 237);
+    /* background: rgb(102, 196, 237);
+    border-radius: 10px; */
+}
+
+#reviews-list {
+    margin-bottom: 10rem;
+}
+
+.review-item {
+    background-color: rgba(240, 242, 247, 0.52);
+    border-radius: 25px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    color: rgb(17, 26, 53);
+    font-size: 1.25rem;
+}
+
+
+
+/* .slider {
+    width: 500px;
+    height: 60px;
+    padding: 30px;
+    padding-left: 40px;
+    background: #fcfcfc;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 15px 40px #7E6D5766;
+}
+
+
+
+
+
+.slider input[type="range"]::-webkit-slider-thumb:hover {background: black;} 
+    */
         
 
 
@@ -181,7 +289,7 @@ button {
 
     .cast {
         grid-template-columns: repeat(5, 1fr);
-        column-gap: 4.5rem;
+        column-gap: 4rem;
     }
 
     .info-storyline {

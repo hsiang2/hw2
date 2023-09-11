@@ -5,7 +5,7 @@
         "image": "images/img_oppenheimer.jpg",
         "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
         "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
-        "year": "2023",
+        "year": "2023/7/21",
         "rating": "R",
         "runningTime": "3h",
         "cast": [
@@ -29,8 +29,8 @@
         "comment": []
     },
     {
-        "id": 0,
-        "name": "Oppenheimer",
+        "id": 1,
+        "name": "Barbie",
         "image": "images/img_oppenheimer.jpg",
         "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
         "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
@@ -58,7 +58,7 @@
         "comment": []
     },
     {
-        "id": 0,
+        "id": 2,
         "name": "Oppenheimer",
         "image": "images/img_oppenheimer.jpg",
         "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
