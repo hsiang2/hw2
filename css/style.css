@@ -24,7 +24,7 @@ button {
     /* width: 100%; */
 	max-width: 480px;
 	margin: 0 auto;
-	overflow: hidden;
+	/* overflow: hidden; */
     padding: 0 10px;
 }
 
@@ -43,9 +43,40 @@ button {
     text-decoration: none;
 }
 
-.filter {
+#filter {
     margin: 0;
     cursor: pointer;
+}
+
+#dropdown {
+    background-color: rgb(240, 242, 247, 0.52);
+    color: rgb(17, 26, 53);
+    border-radius: 15px;
+    padding: 1rem;
+    position: absolute;
+    top: 3rem;
+}
+
+#recent {
+    cursor: pointer;
+    opacity: 1;
+}
+
+#rating {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.filter-wrapper {
+    position: relative;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 .movie-list {

@@ -1,6 +1,29 @@
 [
     {
         "id": 0,
+        "name": "Meg 2: The Trench",
+        "image": "images/img_meg2.jpg",
+        "storylineShort": "A research team encounters multiple threats while exploring the depths of the ocean, including a malevolent mining operation.",
+        "storylineLong": "Jonas Taylor has been involved in fighting environmental crimes while also helping Mana One in exploring a further deep part of the Mariana Trench where the Megalodon had been found.",
+        "year": "2023/8/25",
+        "rating": "PG-13",
+        "runningTime": "1h 56m",
+        "cast": [
+            {
+                "name": "Jason Statham",
+                "character": "Jonas Taylor",
+                "image": "images/img_JasonStatham.jpg"
+            },
+            {
+                "name": "Skyler Samuels",
+                "character": "Jess",
+                "image": "images/img_SkylerSamuels.jpg"
+            }
+        ],
+        "score": 1.5
+    },
+    {
+        "id": 1,
         "name": "Oppenheimer",
         "image": "images/img_oppenheimer.jpg",
         "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
@@ -22,68 +45,37 @@
             {
                 "name": "Robert Downey Jr.",
                 "character": "Lewis Strauss",
-                "image": "images/img_CillianMurphy.jpg"
+                "image": "images/img_RobertDowneyJr.jpg"
             }
         ],
-        "score": 0.0,
-        "comment": []
-    },
-    {
-        "id": 1,
-        "name": "Barbie",
-        "image": "images/img_oppenheimer.jpg",
-        "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
-        "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
-        "year": "2023",
-        "rating": "R",
-        "runningTime": "3h",
-        "cast": [
-            {
-                "name": "Cillian Murphy",
-                "character": "J. Robert Oppenheimer",
-                "image": "images/img_CillianMurphy.jpg"
-            },
-            {
-                "name": "Emily Blunt",
-                "character": "Kitty Oppenheimer",
-                "image": "images/img_EmilyBlunt.jpg"
-            },
-            {
-                "name": "Robert Downey Jr.",
-                "character": "Lewis Strauss",
-                "image": "images/img_CillianMurphy.jpg"
-            }
-        ],
-        "score": 0.0,
-        "comment": []
+        "score": 5.0
     },
     {
         "id": 2,
-        "name": "Oppenheimer",
-        "image": "images/img_oppenheimer.jpg",
-        "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
-        "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
-        "year": "2023",
-        "rating": "R",
-        "runningTime": "3h",
+        "name": "Barbie",
+        "image": "images/img_barbie.jpg",
+        "storylineShort": "Barbie suffers a crisis that leads her to question her world and her existence.",
+        "storylineLong": "Barbie suffers a crisis that leads her to question her world and her existence.",
+        "year": "2023/7/21",
+        "rating": "PG-13",
+        "runningTime": "1h 54m",
         "cast": [
             {
-                "name": "Cillian Murphy",
-                "character": "J. Robert Oppenheimer",
-                "image": "images/img_CillianMurphy.jpg"
+                "name": "Margot Robbie",
+                "character": "Barbie",
+                "image": "images/img_MargotRobbie.jpg"
             },
             {
-                "name": "Emily Blunt",
-                "character": "Kitty Oppenheimer",
-                "image": "images/img_EmilyBlunt.jpg"
+                "name": "Ryan Gosling",
+                "character": "Ken",
+                "image": "images/img_RyanGosling.jpg"
             },
             {
-                "name": "Robert Downey Jr.",
-                "character": "Lewis Strauss",
-                "image": "images/img_CillianMurphy.jpg"
+                "name": "Emma Mackey",
+                "character": "Barbie",
+                "image": "images/img_EmmaMackey.jpg"
             }
         ],
-        "score": 0.0,
-        "comment": []
+        "score": 4.5
     }
 ]

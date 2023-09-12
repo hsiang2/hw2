@@ -2,24 +2,42 @@
 const content = document.querySelector('#content')
 const homeBtn = document.querySelector('#home')
 
+const filterBtn = document.querySelector('#filter')
+const dropdown = document.querySelector('#dropdown')
+const recentBtn = document.querySelector('#recent')
+const ratingBtn = document.querySelector('#rating')
+
+
 var reviews = []
+var sort = "recent"
 
 // read local JSON file in javascript
-fetch("./json/movies.json")
-    .then((response) => {
-        return response.json();
-    })
-    .then((json) => {
-        content.innerHTML = renderMovieList(json);
-        
-    })
-    .catch(err => {
-        console.log('Request Failed', err);
-    });
+fetchData()
 
+filterBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("hide")
+    dropdown.classList.toggle("show")
+})
 
+ratingBtn.addEventListener("click", () => {
+    sort = "rating"
+    ratingBtn.style.opacity = 1
+    recentBtn.style.opacity = 0.7
+    fetchData()
+})
+
+recentBtn.addEventListener("click", () => {
+    sort = "recent"
+    ratingBtn.style.opacity = 0.7
+    recentBtn.style.opacity = 1
+    fetchData()
+})
 
 homeBtn.addEventListener("click", () => {
+    fetchData()
+})
+
+function fetchData() {
     fetch("./json/movies.json")
     .then((response) => {
         return response.json();
@@ -31,9 +49,31 @@ homeBtn.addEventListener("click", () => {
     .catch(err => {
         console.log('Request Failed', err);
     });
-})
+}
 
 function renderMovieList(json) {
+    // if (sort == "recent") {
+    //     json.sort( (a, b) => {
+    //         if (a.year)
+    //     })
+    // }
+    // var list = json
+    if (sort == "rating") {
+        
+        json.sort((a, b) => {
+            return b.score - a.score
+        })
+        
+    } else {
+        json.sort((a, b) => {
+            a = a.year.split('/')
+            b = b.year.split('/')
+            return b[0] - a[0] || b[1] - a[1] ||b[2] - a[2]
+        })
+        console.log(json)
+    }
+    
+
     return `
         <section class="movie-list">
         ${json.map(movie => {
