@@ -29,7 +29,7 @@
         "storylineShort": "The story of American scientist, J. Robert Oppenheimer, and his role in the development of the atomic bomb.",
         "storylineLong": "A dramatization of the life story of J. Robert Oppenheimer, the physicist who had a large hand in the development of the atomic bomb, thus helping end World War 2. We see his life from university days all the way to post-WW2, where his fame saw him embroiled in political machinations.",
         "year": "2023/7/21",
-        "rating": "R",
+        "rating": "R-18",
         "runningTime": "3h",
         "cast": [
             {
@@ -76,6 +76,57 @@
                 "image": "images/img_EmmaMackey.jpg"
             }
         ],
+        "score": 4
+    },
+    {
+        "id": 3,
+        "name": "Get Out",
+        "image": "images/img_getOut.jpg",
+        "storylineShort": "A young African-American visits his White girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.",
+        "storylineLong": "Chris and his girlfriend Rose go upstate to visit her parents for the weekend. At first, Chris reads the family's overly accommodating behavior as nervous attempts to deal with their daughter's interracial relationship, but as the weekend progresses, a series of increasingly disturbing discoveries lead him to a truth that he never could have imagined.",
+        "year": "2017/2/24",
+        "rating": "R-18",
+        "runningTime": "1h 44m",
+        "cast": [
+            {
+                "name": "Daniel Kaluuya",
+                "character": "Chris Washington",
+                "image": "images/img_DanielKaluuya.jpg"
+            },
+            {
+                "name": "Allison Williams",
+                "character": "Rose Armitage",
+                "image": "images/img_AllisonWilliams.jpg"
+            },
+            {
+                "name": "Bradley Whitford",
+                "character": "Dean Armitage",
+                "image": "images/img_BradleyWhitford.jpg"
+            }
+        ],
         "score": 4.5
+    },    
+    {
+        "id": 4,
+        "name": "Elemental",
+        "image": "images/img_elemental.jpg",
+        "storylineShort": "Follows Ember and Wade, in a city where fire-, water-, land- and air-residents live together.",
+        "storylineLong": "The film journeys alongside an unlikely pair, Ember and Wade, in a city where fire-, water-, land- and air-residents live together. The fiery young woman and the go-with-the-flow guy are about to discover something elemental: how much they actually have in common.",
+        "year": "2023/6/16",
+        "rating": "0+",
+        "runningTime": "1h 41m",
+        "cast": [
+            {
+                "name": "Leah Lewis",
+                "character": "Ember(voice)",
+                "image": "images/img_LeahLewis.jpg"
+            },
+            {
+                "name": "Mamoudou Athie",
+                "character": "Wade(voice)",
+                "image": "images/img_MamoudouAthie.jpg"
+            }
+        ],
+        "score": 3.5
     }
 ]

@@ -11,7 +11,6 @@ const ratingBtn = document.querySelector('#rating')
 var reviews = []
 var sort = "recent"
 
-// read local JSON file in javascript
 fetchData()
 
 filterBtn.addEventListener("click", () => {
@@ -19,16 +18,21 @@ filterBtn.addEventListener("click", () => {
     dropdown.classList.toggle("show")
 })
 
+// filterBtn.blur() = function() {
+//     dropdown.classList.add("hide")
+//     dropdown.classList.remove("show")
+// }
+
 ratingBtn.addEventListener("click", () => {
     sort = "rating"
     ratingBtn.style.opacity = 1
-    recentBtn.style.opacity = 0.7
+    recentBtn.style.opacity = 0.5
     fetchData()
 })
 
 recentBtn.addEventListener("click", () => {
     sort = "recent"
-    ratingBtn.style.opacity = 0.7
+    ratingBtn.style.opacity = 0.5
     recentBtn.style.opacity = 1
     fetchData()
 })
@@ -52,12 +56,7 @@ function fetchData() {
 }
 
 function renderMovieList(json) {
-    // if (sort == "recent") {
-    //     json.sort( (a, b) => {
-    //         if (a.year)
-    //     })
-    // }
-    // var list = json
+
     if (sort == "rating") {
         
         json.sort((a, b) => {
@@ -79,9 +78,16 @@ function renderMovieList(json) {
         ${json.map(movie => {
             return `
                 <article>
-                    <button data-movie='${JSON.stringify(movie)}' onclick="pressMovie(this)">
+                    <button data-movie='${btoa(JSON.stringify(movie))}' onclick="pressMovie(this)">
                         <img src=${movie.image} class="item-img">
                         <p class="item-name">${movie.name}</>
+                        <div>
+                            <i class="${movie.score >= 1 ? "fa-solid fa-star" : movie.score >= 0.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                            <i class="${movie.score >= 2 ? "fa-solid fa-star" : movie.score >= 1.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                            <i class="${movie.score >= 3 ? "fa-solid fa-star" : movie.score >= 2.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                            <i class="${movie.score >= 4 ? "fa-solid fa-star" : movie.score >= 3.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                            <i class="${movie.score >= 5 ? "fa-solid fa-star" : movie.score >= 4.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                        </div>
                         <p class="item-storyline">${movie.storylineShort}</>
                     </button>
                 </article>
@@ -92,7 +98,7 @@ function renderMovieList(json) {
 }
 
 function pressMovie(button) {
-    const movieData = JSON.parse(button.dataset.movie)
+    const movieData = JSON.parse(atob(button.dataset.movie))
 
     content.innerHTML = `
         <section class="info">
@@ -100,6 +106,13 @@ function pressMovie(button) {
             <div class="info-div">
                 <h1 class="info-name">${movieData.name}</h1>
                 <p class="info-details">${movieData.year} . ${movieData.rating} . ${movieData.runningTime}</>
+                <div>
+                    <i class="${movieData.score >= 1 ? "fa-solid fa-star" : movieData.score >= 0.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                    <i class="${movieData.score >= 2 ? "fa-solid fa-star" : movieData.score >= 1.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                    <i class="${movieData.score >= 3 ? "fa-solid fa-star" : movieData.score >= 2.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                    <i class="${movieData.score >= 4 ? "fa-solid fa-star" : movieData.score >= 3.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                    <i class="${movieData.score >= 5 ? "fa-solid fa-star" : movieData.score >= 4.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                </div>
                 <p class="info-storyline">${movieData.storylineLong}</>
             </div>
         </section>
@@ -140,15 +153,6 @@ function pressMovie(button) {
     `
 }
 
-// ${reviews.map(review => {
-//     return `
-//         <div>
-//             <p>${review.score}</p>
-//             <p>${review.comment}</p>
-//         </div>
-//     `
-// }).join("")}
-
 function submitReview(form) {
     reviews.push({"score": form.rating.value, "comment": form.review.value})
 
@@ -169,13 +173,7 @@ function submitReview(form) {
             `
         }).join("")}
     `
-    // document.getElementById("reviews-list").innerHTML = `
-    //         <p>${form.rating.value}</p>
-    //         <p>${form.review.value}</p>
-    //     `
     form.rating.value = 0
     rangeValue.innerText = 0
     form.review.value = ""
-   
-
 }

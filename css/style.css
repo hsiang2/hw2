@@ -49,7 +49,7 @@ button {
 }
 
 #dropdown {
-    background-color: rgb(240, 242, 247, 0.52);
+    background-color: rgb(240, 242, 247, 0.9);
     color: rgb(17, 26, 53);
     border-radius: 15px;
     padding: 1rem;
@@ -84,6 +84,7 @@ button {
     grid-template-columns: repeat(1, 1fr);
     column-gap: 2rem;
     row-gap: 6rem;
+    margin-bottom: 10rem;
 }
 
 /* .item {
@@ -114,8 +115,14 @@ button {
 }
 
 .info-img {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 20px;
+
+}
+
+.info-div {
+
 }
 
 .info-name {
@@ -284,8 +291,13 @@ button {
     }
 
     .info-img {
-        width: 40%;
+        min-width: 40%;
+        height: auto;
         
+    }
+    .info-div {
+     
+    /* width: 10px; */
     }
 
     /* .container {padding: 0 10px;} */
