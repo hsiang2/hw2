@@ -67,6 +67,11 @@ button {
     opacity: 0.5;
 }
 
+#aToZ {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
 .filter-wrapper {
     position: relative;
 }
@@ -287,6 +292,6 @@ button {
         font-size: 1.25rem;
     }
 	.container {max-width: 1025px;}
-    
+
 }
 

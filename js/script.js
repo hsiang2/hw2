@@ -5,9 +5,8 @@ const filterBtn = document.querySelector('#filter')
 const dropdown = document.querySelector('#dropdown')
 const recentBtn = document.querySelector('#recent')
 const ratingBtn = document.querySelector('#rating')
+const aToZBtn = document.querySelector('#aToZ')
 
-
-var reviews = []
 var sort = "recent"
 
 var movies = [
@@ -159,6 +158,7 @@ filterBtn.addEventListener("click", () => {
 ratingBtn.addEventListener("click", () => {
     sort = "rating"
     ratingBtn.style.opacity = 1
+    aToZBtn.style.opacity = 0.5
     recentBtn.style.opacity = 0.5
     // fetchData()
     content.innerHTML = renderMovieList();
@@ -167,7 +167,17 @@ ratingBtn.addEventListener("click", () => {
 recentBtn.addEventListener("click", () => {
     sort = "recent"
     ratingBtn.style.opacity = 0.5
+    aToZBtn.style.opacity = 0.5
     recentBtn.style.opacity = 1
+    content.innerHTML = renderMovieList();
+    // fetchData()
+})
+
+aToZBtn.addEventListener("click", () => {
+    sort = "aToZ"
+    ratingBtn.style.opacity = 0.5
+    recentBtn.style.opacity = 0.5
+    aToZBtn.style.opacity = 1
     content.innerHTML = renderMovieList();
     // fetchData()
 })
@@ -194,16 +204,19 @@ homeBtn.addEventListener("click", () => {
 function renderMovieList() {
 
     if (sort == "rating") {
-        
         movies.sort((a, b) => {
             return b.score - a.score
         })
         
-    } else {
+    } else if (sort == "recent") {
         movies.sort((a, b) => {
             a = a.year.split('/')
             b = b.year.split('/')
             return b[0] - a[0] || b[1] - a[1] ||b[2] - a[2]
+        })
+    } else {
+        movies.sort((a, b) => {
+            return a.name.localeCompare(b.name)
         })
     }
     
@@ -283,7 +296,7 @@ function pressMovie(button) {
         </section>
         <section class="reviews">
             <h1 class="info-name">Reviews</h1>
-            <div id="reviews-list">${movieData.reviews.map(review => {
+            <div id="reviews-list">${movieData.reviews.length ? movieData.reviews.map(review => {
                 return `
                     <article class="review-item">
                         <div>
@@ -296,7 +309,8 @@ function pressMovie(button) {
                         <p>${review.comment}</p>
                     </article>
                 `
-            }).join("")}</div>
+            }).join("") : `<div class="info-details" style="opacity: 0.7">No reviews yet.</div>`}
+            </div>
         </section>
     `
 }
