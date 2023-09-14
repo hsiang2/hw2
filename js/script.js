@@ -7,9 +7,9 @@ const recentBtn = document.querySelector('#recent')
 const ratingBtn = document.querySelector('#rating')
 const aToZBtn = document.querySelector('#aToZ')
 
-var sort = "recent"
+let sort = "recent"
 
-var movies = [
+let movies = [
     {
         "id": 0,
         "name": "Meg 2: The Trench",
@@ -161,7 +161,7 @@ ratingBtn.addEventListener("click", () => {
     aToZBtn.style.opacity = 0.5
     recentBtn.style.opacity = 0.5
     // fetchData()
-    content.innerHTML = renderMovieList();
+    content.innerHTML = renderMovieList()
 })
 
 recentBtn.addEventListener("click", () => {
@@ -169,7 +169,7 @@ recentBtn.addEventListener("click", () => {
     ratingBtn.style.opacity = 0.5
     aToZBtn.style.opacity = 0.5
     recentBtn.style.opacity = 1
-    content.innerHTML = renderMovieList();
+    content.innerHTML = renderMovieList()
     // fetchData()
 })
 
@@ -178,13 +178,13 @@ aToZBtn.addEventListener("click", () => {
     ratingBtn.style.opacity = 0.5
     recentBtn.style.opacity = 0.5
     aToZBtn.style.opacity = 1
-    content.innerHTML = renderMovieList();
+    content.innerHTML = renderMovieList()
     // fetchData()
 })
 
 homeBtn.addEventListener("click", () => {
     // fetchData()
-    content.innerHTML = renderMovieList();
+    content.innerHTML = renderMovieList()
 })
 
 // function fetchData() {
@@ -246,7 +246,7 @@ function renderMovieList() {
 }
 
 function pressMovie(button) {
-    const movieData = JSON.parse(atob(button.dataset.movie))
+    let movieData = JSON.parse(atob(button.dataset.movie))
 
     content.innerHTML = `
         <section class="info">
@@ -279,19 +279,21 @@ function pressMovie(button) {
             <h1 class="info-name">Rate and Review</h1>
             <form data-movie='${movieData.id}' onsubmit="submitReview(this);return false">
                 <p class="info-details">Rate this movie on a scale of 1-5.</p>
-                <div class="slider">
-                    <input 
-                        type="range" 
-                        id="rating" name="rating"
-                        min="0" max="5" 
-                        step="0.5" value="0" 
-                        oninput="rangeValue.innerText = this.value"
-                    >
-                    <p id="rangeValue">0</p>
-                </div> 
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="5 stars"></label>
+                    <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="4.5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="4 stars"></label>
+                    <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="3.5 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="3 stars"></label>
+                    <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="2.5 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="2 stars"></label>
+                    <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="1.5 stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="1 star"></label>
+                    <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="0.5 stars"></label>
+                </fieldset>
                 <p class="info-details">Write a review.</p>
                 <textarea class="text-input" rows="8" name="review"></textarea>
-                <input class="btn" type="submit" value="SUBMIT">
+                <input disabled class="btn" type="submit" value="SUBMIT">
             </form>
         </section>
         <section class="reviews">
@@ -315,8 +317,19 @@ function pressMovie(button) {
     `
 }
 
+{/* <div class="slider">
+                    <input 
+                        type="range" 
+                        id="rating" name="rating"
+                        min="0" max="5" 
+                        step="0.5" value="0" 
+                        oninput="rangeValue.innerText = this.value"
+                    >
+                    <p id="rangeValue">0</p>
+                </div>  */}
+
 function submitReview(form) {
-    const movie = JSON.parse(form.dataset.movie)
+    let movie = JSON.parse(form.dataset.movie)
     let index = movies.findIndex(e => e.id == movie)
    
     movies[index].reviews.push({"score": form.rating.value, "comment": form.review.value})
