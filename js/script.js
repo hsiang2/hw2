@@ -164,7 +164,7 @@ recentBtn.addEventListener("click", () => {
 })
 
 aToZBtn.addEventListener("click", () => {
-    sortMovie("click")
+    sortMovie("aToZ")
 })
 
 homeBtn.addEventListener("click", () => {
