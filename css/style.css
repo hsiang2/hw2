@@ -182,6 +182,7 @@ button {
     cursor: pointer;
     margin-right: auto;
     margin-left: auto;
+    /* opacity: 0.5; */
 }
 
 .reviews {
@@ -192,7 +193,7 @@ button {
     margin-bottom: 5rem;
 }
 
-.slider {
+/* .slider {
     display: flex;
     align-items: center;
     margin-bottom: 3rem;
@@ -208,22 +209,20 @@ button {
     width: 50%;
     appearance: none;
     height: 3px;
-}
+} */
 
-
-
-.slider input[type="range"]::-webkit-slider-thumb {
+/* .slider input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none !important;
     width: 20px;
     height: 20px;
     background: #9cdfe3;
     border-radius: 50%;
     cursor: pointer;
-}
+} */
 
-.slider input[type="range"]::-webkit-slider-runnable-track {
+/* .slider input[type="range"]::-webkit-slider-runnable-track {
     accent-color: rgb(102, 196, 237);
-}
+} */
 
 #reviews-list {
     margin-bottom: 10rem;
@@ -244,35 +243,53 @@ button {
 .rating > label:before { 
   margin: 5px;
   font-size: 30px;
-  font-family: FontAwesome;
+  font-family: "Font Awesome 5 Free";
+    
   display: inline-block;
   content: "\f005";
 }
 
+.rating { 
+   
+    margin-bottom: 3rem;
+    border: none;
+    float: left;
+  }
+
 .rating > .half:before { 
-    content: "\f089";
+
     position: absolute;
-  }
+}
 
-  .rating > label { 
-    color: #ddd; 
-   float: right; 
-  }
+.rating > label { 
+    /* color: #ddd;  */
+    float: right; 
+}
 
-  .rating > input:checked ~ label, /* show gold star when clicked */
+.rating > input:checked ~ label.half:before,
+.rating:not(:checked) > label:hover.half:before,
+.rating:not(:checked) > label:hover ~ label.half:before { 
+    content: "\f089";
+}
+
+.rating > input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+.rating:not(:checked) > label:hover ~ label { font-weight: 900; } /* hover previous stars in list */
 
 .rating > input:checked + label:hover, /* hover current star when changing rating */
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+.rating > input:checked ~ label:hover ~ label { color: rgb(180, 184, 194); }
 
 input, label {
   cursor: pointer;
 }
 
-
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
 
 @media screen and (min-width: 600px) {
 

@@ -187,6 +187,8 @@ homeBtn.addEventListener("click", () => {
     content.innerHTML = renderMovieList()
 })
 
+// handleChange();
+
 // function fetchData() {
 //     fetch("./json/movies.json")
 //     .then((response) => {
@@ -277,7 +279,7 @@ function pressMovie(button) {
         </section>
         <section class="reviews">
             <h1 class="info-name">Rate and Review</h1>
-            <form data-movie='${movieData.id}' onsubmit="submitReview(this);return false">
+            <form data-movie='${movieData.id}' onsubmit="submitReview(event, this);return false">
                 <p class="info-details">Rate this movie on a scale of 1-5.</p>
                 <fieldset class="rating">
                     <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="5 stars"></label>
@@ -293,7 +295,7 @@ function pressMovie(button) {
                 </fieldset>
                 <p class="info-details">Write a review.</p>
                 <textarea class="text-input" rows="8" name="review"></textarea>
-                <input disabled class="btn" type="submit" value="SUBMIT">
+                <input class="btn" type="submit" value="SUBMIT">
             </form>
         </section>
         <section class="reviews">
@@ -328,29 +330,57 @@ function pressMovie(button) {
                     <p id="rangeValue">0</p>
                 </div>  */}
 
-function submitReview(form) {
+function submitReview(event, form) {
+
+    event.preventDefault()
+
     let movie = JSON.parse(form.dataset.movie)
     let index = movies.findIndex(e => e.id == movie)
+
+    const valueStars = document.querySelector('input[name="rating"]:checked')?.value
+    
+    if (valueStars) {
+        
+        movies[index].reviews.push({"score": valueStars, "comment": form.review.value})
+         document.getElementById("reviews-list").innerHTML = `
+             ${movies[index].reviews.map(review => {
+                 return `
+                     <article class="review-item">
+                         <div>
+                             <i class="${review.score >= 1 ? "fa-solid fa-star" : review.score >= 0.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                             <i class="${review.score >= 2 ? "fa-solid fa-star" : review.score >= 1.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                             <i class="${review.score >= 3 ? "fa-solid fa-star" : review.score >= 2.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                             <i class="${review.score >= 4 ? "fa-solid fa-star" : review.score >= 3.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                             <i class="${review.score >= 5 ? "fa-solid fa-star" : review.score >= 4.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                         </div>
+                         <p>${review.comment}</p>
+                     </article>
+                 `
+             }).join("")}
+         `
+         // form.rating.value = 0
+         // rangeValue.innerText = 0
+         const radioInputs = form.querySelectorAll('input[type="radio"]');
+         for (let i = 0; i < radioInputs.length; i++) {
+             radioInputs[i].checked = false;
+         }
+         form.review.value = ""
+    } 
    
-    movies[index].reviews.push({"score": form.rating.value, "comment": form.review.value})
-   
-    document.getElementById("reviews-list").innerHTML = `
-        ${movies[index].reviews.map(review => {
-            return `
-                <article class="review-item">
-                    <div>
-                        <i class="${review.score >= 1 ? "fa-solid fa-star" : review.score >= 0.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                        <i class="${review.score >= 2 ? "fa-solid fa-star" : review.score >= 1.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                        <i class="${review.score >= 3 ? "fa-solid fa-star" : review.score >= 2.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                        <i class="${review.score >= 4 ? "fa-solid fa-star" : review.score >= 3.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                        <i class="${review.score >= 5 ? "fa-solid fa-star" : review.score >= 4.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                    </div>
-                    <p>${review.comment}</p>
-                </article>
-            `
-        }).join("")}
-    `
-    form.rating.value = 0
-    rangeValue.innerText = 0
-    form.review.value = ""
 }
+
+// function handleChange() {
+//     const inputRatings = document.querySelectorAll('input[name="rating"]');
+//     const submitBtn = document.querySelector('input[type="submit"]');
+    
+//     inputRatings.forEach(input => {
+//       input.addEventListener('change', () => {
+//         if (input.checked === true) {
+//             console.log("change")
+//             submitBtn.style.opacity = 1
+//         //   submitBtn.disabled = false;
+//         } 
+//       })
+//     })
+//   }
+  
