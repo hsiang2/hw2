@@ -231,11 +231,17 @@ button {
 .review-item {
     background-color: rgba(240, 242, 247, 0.52);
     border-radius: 25px;
-    padding: 2rem;
+    padding: 2rem 2rem 1rem;
     margin-bottom: 2rem;
     color: rgb(17, 26, 53);
     font-size: 1.25rem;
 } 
+
+.review-time {
+    font-size: 1rem;
+    text-align: end;
+    opacity: 0.7;
+}
 
 /*Star*/
 

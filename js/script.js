@@ -156,52 +156,28 @@ filterBtn.addEventListener("click", () => {
 })
 
 ratingBtn.addEventListener("click", () => {
-    sort = "rating"
-    ratingBtn.style.opacity = 1
-    aToZBtn.style.opacity = 0.5
-    recentBtn.style.opacity = 0.5
-    // fetchData()
-    content.innerHTML = renderMovieList()
+    sortMovie("rating")
 })
 
 recentBtn.addEventListener("click", () => {
-    sort = "recent"
-    ratingBtn.style.opacity = 0.5
-    aToZBtn.style.opacity = 0.5
-    recentBtn.style.opacity = 1
-    content.innerHTML = renderMovieList()
-    // fetchData()
+    sortMovie("recent")
 })
 
 aToZBtn.addEventListener("click", () => {
-    sort = "aToZ"
-    ratingBtn.style.opacity = 0.5
-    recentBtn.style.opacity = 0.5
-    aToZBtn.style.opacity = 1
-    content.innerHTML = renderMovieList()
-    // fetchData()
+    sortMovie("click")
 })
 
 homeBtn.addEventListener("click", () => {
-    // fetchData()
     content.innerHTML = renderMovieList()
 })
 
-// handleChange();
-
-// function fetchData() {
-//     fetch("./json/movies.json")
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((json) => {
-//         content.innerHTML = renderMovieList(json);
-        
-//     })
-//     .catch(err => {
-//         console.log('Request Failed', err);
-//     });
-// }
+function sortMovie(type) {
+    sort = type
+    ratingBtn.style.opacity = type == "rating" ? 1 : 0.5
+    recentBtn.style.opacity = type == "recent" ? 1 : 0.5
+    aToZBtn.style.opacity = type == "aToZ" ? 1 : 0.5
+    content.innerHTML = renderMovieList()
+}
 
 function renderMovieList() {
 
@@ -232,11 +208,7 @@ function renderMovieList() {
                         <img src=${movie.image} class="item-img">
                         <p class="item-name">${movie.name}</>
                         <div>
-                            <i class="${movie.score >= 1 ? "fa-solid fa-star" : movie.score >= 0.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                            <i class="${movie.score >= 2 ? "fa-solid fa-star" : movie.score >= 1.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                            <i class="${movie.score >= 3 ? "fa-solid fa-star" : movie.score >= 2.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                            <i class="${movie.score >= 4 ? "fa-solid fa-star" : movie.score >= 3.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                            <i class="${movie.score >= 5 ? "fa-solid fa-star" : movie.score >= 4.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                            ${stars(movie.score)}
                         </div>
                         <p class="item-storyline">${movie.storylineShort}</>
                     </button>
@@ -257,11 +229,7 @@ function pressMovie(button) {
                 <h1 class="info-name">${movieData.name}</h1>
                 <p class="info-details">${movieData.year} . ${movieData.rating} . ${movieData.runningTime}</>
                 <div>
-                    <i class="${movieData.score >= 1 ? "fa-solid fa-star" : movieData.score >= 0.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                    <i class="${movieData.score >= 2 ? "fa-solid fa-star" : movieData.score >= 1.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                    <i class="${movieData.score >= 3 ? "fa-solid fa-star" : movieData.score >= 2.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                    <i class="${movieData.score >= 4 ? "fa-solid fa-star" : movieData.score >= 3.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                    <i class="${movieData.score >= 5 ? "fa-solid fa-star" : movieData.score >= 4.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                    ${stars(movieData.score)}
                 </div>
                 <p class="info-storyline">${movieData.storylineLong}</>
             </div>
@@ -304,13 +272,10 @@ function pressMovie(button) {
                 return `
                     <article class="review-item">
                         <div>
-                            <i class="${review.score >= 1 ? "fa-solid fa-star" : review.score >= 0.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                            <i class="${review.score >= 2 ? "fa-solid fa-star" : review.score >= 1.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                            <i class="${review.score >= 3 ? "fa-solid fa-star" : review.score >= 2.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                            <i class="${review.score >= 4 ? "fa-solid fa-star" : review.score >= 3.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                            <i class="${review.score >= 5 ? "fa-solid fa-star" : review.score >= 4.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                            ${stars(review.score)}
                         </div>
                         <p>${review.comment}</p>
+                        <p class="review-time">${review.time}</p>
                     </article>
                 `
             }).join("") : `<div class="info-details" style="opacity: 0.7">No reviews yet.</div>`}
@@ -319,16 +284,21 @@ function pressMovie(button) {
     `
 }
 
-{/* <div class="slider">
-                    <input 
-                        type="range" 
-                        id="rating" name="rating"
-                        min="0" max="5" 
-                        step="0.5" value="0" 
-                        oninput="rangeValue.innerText = this.value"
-                    >
-                    <p id="rangeValue">0</p>
-                </div>  */}
+function stars(score) {
+    let stars = ''
+    for(let i = 1; i <= 5; i++) {
+        if (i <= score) {
+            stars += '<i class="fa-solid fa-star"></i>'
+        } else if (i == score + 0.5) {
+            stars += '<i class="fa-solid fa-star-half-stroke"></i>'
+        } else {
+            stars += '<i class="fa-regular fa-star"></i>'
+        }
+       
+    }
+
+    return stars
+}
 
 function submitReview(event, form) {
 
@@ -336,30 +306,29 @@ function submitReview(event, form) {
 
     let movie = JSON.parse(form.dataset.movie)
     let index = movies.findIndex(e => e.id == movie)
+    let time = Date.now()
+    let currentTime = new Date(time)
 
     const valueStars = document.querySelector('input[name="rating"]:checked')?.value
     
     if (valueStars) {
         
-        movies[index].reviews.push({"score": valueStars, "comment": form.review.value})
+        movies[index].reviews.push({"score": valueStars, "comment": form.review.value, "time": currentTime.getFullYear() + '/' + currentTime.getMonth() + '/' + currentTime.getDay() + ' ' + currentTime.getHours() + ':' + currentTime.getMinutes() })
+        console.log(movies[index].reviews)
          document.getElementById("reviews-list").innerHTML = `
              ${movies[index].reviews.map(review => {
                  return `
                      <article class="review-item">
                          <div>
-                             <i class="${review.score >= 1 ? "fa-solid fa-star" : review.score >= 0.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                             <i class="${review.score >= 2 ? "fa-solid fa-star" : review.score >= 1.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                             <i class="${review.score >= 3 ? "fa-solid fa-star" : review.score >= 2.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                             <i class="${review.score >= 4 ? "fa-solid fa-star" : review.score >= 3.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
-                             <i class="${review.score >= 5 ? "fa-solid fa-star" : review.score >= 4.5 ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}"></i>
+                             ${stars(parseFloat(review.score))}
                          </div>
                          <p>${review.comment}</p>
+                         <p class="review-time">${review.time}</p>
                      </article>
                  `
              }).join("")}
          `
-         // form.rating.value = 0
-         // rangeValue.innerText = 0
+         form.reset();
          const radioInputs = form.querySelectorAll('input[type="radio"]');
          for (let i = 0; i < radioInputs.length; i++) {
              radioInputs[i].checked = false;
@@ -369,18 +338,4 @@ function submitReview(event, form) {
    
 }
 
-// function handleChange() {
-//     const inputRatings = document.querySelectorAll('input[name="rating"]');
-//     const submitBtn = document.querySelector('input[type="submit"]');
-    
-//     inputRatings.forEach(input => {
-//       input.addEventListener('change', () => {
-//         if (input.checked === true) {
-//             console.log("change")
-//             submitBtn.style.opacity = 1
-//         //   submitBtn.disabled = false;
-//         } 
-//       })
-//     })
-//   }
-  
+
