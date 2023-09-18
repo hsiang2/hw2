@@ -207,7 +207,7 @@ function renderMovieList() {
                     <button data-movie='${btoa(JSON.stringify(movie))}' onclick="pressMovie(this)">
                         <img src=${movie.image} class="item-img">
                         <p class="item-name">${movie.name}</>
-                        <div>
+                        <div class="item-star">
                             ${stars(movie.score)}
                         </div>
                         <p class="item-storyline">${movie.storylineShort}</>
@@ -228,7 +228,7 @@ function pressMovie(button) {
             <div>
                 <h1 class="info-name">${movieData.name}</h1>
                 <p class="info-details">${movieData.year} . ${movieData.rating} . ${movieData.runningTime}</>
-                <div>
+                <div class="info-star">
                     ${stars(movieData.score)}
                 </div>
                 <p class="info-storyline">${movieData.storylineLong}</>
@@ -272,7 +272,7 @@ function pressMovie(button) {
                 return `
                     <article class="review-item">
                         <div>
-                            ${stars(review.score)}
+                            ${stars(parseFloat(review.score))}
                         </div>
                         <p>${review.comment}</p>
                         <p class="review-time">${review.time}</p>
