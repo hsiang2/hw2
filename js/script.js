@@ -313,8 +313,7 @@ function submitReview(event, form) {
     
     if (valueStars) {
         
-        movies[index].reviews.push({"score": valueStars, "comment": form.review.value, "time": currentTime.getFullYear() + '/' + currentTime.getMonth() + '/' + currentTime.getDay() + ' ' + currentTime.getHours() + ':' + currentTime.getMinutes() })
-        console.log(movies[index].reviews)
+        movies[index].reviews.push({"score": valueStars, "comment": form.review.value, "time": currentTime.getFullYear() + '/' + (currentTime.getMonth() + 1) + '/' + currentTime.getDate() + ' ' + currentTime.getHours() + ':' + currentTime.getMinutes() })
          document.getElementById("reviews-list").innerHTML = `
              ${movies[index].reviews.map(review => {
                  return `

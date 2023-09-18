@@ -260,13 +260,18 @@ button {
 
 /*Star*/
 
+fieldset, label { 
+    margin: 0; 
+    padding: 0; 
+}
+
 .rating > input { display: none; } 
 .rating > label:before { 
   margin: 5px;
   font-size: 30px;
   font-family: "Font Awesome 5 Free";
     
-  display: inline-block;
+  /* display: inline-block; */
   content: "\f005";
 }
 
@@ -274,10 +279,11 @@ button {
    
     margin-bottom: 3rem;
     border: none;
-    float: left;
+    /* float: left; */
   }
 
 .rating > .half:before { 
+    margin-top: 0px;
 
     position: absolute;
 }
