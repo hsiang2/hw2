@@ -267,7 +267,7 @@ fieldset, label {
 
 .rating > input { display: none; } 
 .rating > label:before { 
-  margin: 5px;
+  margin: 0 5px;
   font-size: 30px;
   font-family: "Font Awesome 5 Free";
     
@@ -283,14 +283,14 @@ fieldset, label {
   }
 
 .rating > .half:before { 
-    margin-top: 0px;
+    /* margin-top: 0px; */
 
     position: absolute;
 }
 
 .rating > label { 
     /* color: #ddd;  */
-    float: right; 
+    /* float: right;  */
 }
 
 .rating > input:checked ~ label.half:before,
