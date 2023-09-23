@@ -290,7 +290,7 @@ fieldset, label {
 
 .rating > label { 
     /* color: #ddd;  */
-    /* float: right;  */
+    float: right; 
 }
 
 .rating > input:checked ~ label.half:before,
